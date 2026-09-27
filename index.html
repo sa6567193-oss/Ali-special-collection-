@@ -1,35 +1,837 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Ali Special Collection — elegant fashion for ladies, gents and kids. WhatsApp orders available.">
-<title>Ali Special Collection | Fashion Store</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALI | Special Collection - Luxury Couture</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #0f0f0f;
+            --accent: #c5a059;
+            --accent-hover: #e0b86c;
+            --bg-light: #fcfbf9;
+            --card-bg: #ffffff;
+            --text-main: #1f1f1f;
+            --text-muted: #666666;
+            --border-color: #eae5d9;
+            --shadow-sm: 0 4px 20px rgba(0,0,0,0.05);
+            --shadow-lg: 0 12px 40px rgba(0,0,0,0.12);
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .brand-font {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 1px;
+        }
+
+        /* Top Announcement Bar */
+        .announcement-bar {
+            background-color: var(--primary);
+            color: #ffffff;
+            text-align: center;
+            padding: 9px 15px;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 500;
+            border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+        }
+
+        /* Header / Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .nav-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 25px;
+        }
+
+        .brand-logo {
+            text-align: center;
+            text-decoration: none;
+            color: var(--primary);
+        }
+
+        .brand-logo h1 {
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: 4px;
+            margin-bottom: -4px;
+        }
+
+        .brand-logo span {
+            font-size: 9px;
+            letter-spacing: 3px;
+            color: var(--accent);
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .btn-whatsapp-nav {
+            background-color: #25d366;
+            color: white;
+            text-decoration: none;
+            padding: 9px 20px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.25);
+            transition: var(--transition);
+        }
+
+        .btn-whatsapp-nav:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+        }
+
+        /* Hero Banner */
+        .hero-section {
+            position: relative;
+            height: 75vh;
+            min-height: 500px;
+            background: linear-gradient(rgba(15, 15, 15, 0.4), rgba(15, 15, 15, 0.5)), 
+                        url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+
+        .hero-content {
+            max-width: 850px;
+            animation: fadeIn 1.2s ease-out;
+        }
+
+        .hero-subtitle {
+            color: var(--accent);
+            font-size: 13px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .hero-title {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .hero-desc {
+            font-size: 16px;
+            margin-bottom: 30px;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 300;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: var(--primary);
+            padding: 14px 38px;
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 13px;
+            border-radius: 2px;
+            transition: var(--transition);
+        }
+
+        .hero-btn:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(197, 160, 89, 0.4);
+        }
+
+        /* Main Catalog Section */
+        .catalog-container {
+            max-width: 1300px;
+            margin: 60px auto;
+            padding: 0 25px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 32px;
+            color: var(--primary);
+            margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent);
+            margin: 12px auto 0;
+        }
+
+        .section-desc {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        /* Filter Navigation */
+        .filter-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 45px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            padding: 10px 26px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            cursor: pointer;
+            text-transform: uppercase;
+            border-radius: 30px;
+            color: var(--text-main);
+            transition: var(--transition);
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Product Grid */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: var(--primary);
+            color: var(--accent);
+            font-size: 10px;
+            font-weight: 700;
+            padding: 4px 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            z-index: 2;
+            border-radius: 2px;
+        }
+
+        .product-img-box {
+            position: relative;
+            width: 100%;
+            height: 380px;
+            overflow: hidden;
+            background-color: #f5f5f5;
+            cursor: pointer;
+        }
+
+        .product-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .product-card:hover .product-img-box img {
+            transform: scale(1.06);
+        }
+
+        .quick-view-btn {
+            position: absolute;
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(255, 255, 255, 0.95);
+            color: var(--primary);
+            border: none;
+            padding: 10px 20px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            width: 85%;
+            border-radius: 4px;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+
+        .product-card:hover .quick-view-btn {
+            bottom: 15px;
+        }
+
+        .product-info {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .product-category {
+            font-size: 11px;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .product-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .product-price {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .product-price span {
+            font-size: 13px;
+            color: var(--text-muted);
+            text-decoration: line-through;
+            margin-left: 8px;
+            font-weight: 400;
+        }
+
+        .btn-order-whatsapp {
+            margin-top: auto;
+            width: 100%;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .btn-order-whatsapp:hover {
+            background-color: #25d366;
+            color: white;
+        }
+
+        /* Modal Quick View */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.75);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: white;
+            border-radius: 12px;
+            max-width: 850px;
+            width: 100%;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            position: relative;
+            animation: modalSlide 0.3s ease-out;
+        }
+
+        @keyframes modalSlide {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 10;
+            color: var(--primary);
+        }
+
+        .modal-img {
+            width: 100%;
+            height: 100%;
+            min-height: 400px;
+            object-fit: cover;
+        }
+
+        .modal-details {
+            padding: 35px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .modal-desc {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin: 15px 0 25px;
+        }
+
+        /* Trust Badges */
+        .features-section {
+            background-color: #f4efe6;
+            padding: 50px 25px;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            margin-top: 80px;
+        }
+
+        .features-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .feature-item i {
+            font-size: 32px;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+
+        .feature-item h4 {
+            font-size: 16px;
+            margin-bottom: 5px;
+            color: var(--primary);
+        }
+
+        .feature-item p {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 60px 25px 20px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            color: var(--accent);
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-col p, .footer-col li {
+            color: #b0b0b0;
+            font-size: 14px;
+            margin-bottom: 10px;
+            list-style: none;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid #2a2a2a;
+            padding-top: 20px;
+            color: #777;
+            font-size: 12px;
+        }
+
+        /* Floating WhatsApp Button */
+        .float-whatsapp {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .float-whatsapp:hover {
+            transform: scale(1.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-title { font-size: 32px; }
+            .modal-content { grid-template-columns: 1fr; max-height: 90vh; overflow-y: auto; }
+            .modal-img { height: 250px; min-height: auto; }
+            .modal-details { padding: 20px; }
+            .nav-container { flex-direction: column; gap: 15px; text-align: center; }
+        }
+    </style>
 </head>
 <body>
-<div class="topbar">WELCOME TO ALI SPECIAL COLLECTION <span>•</span> WHATSAPP ORDERS AVAILABLE</div>
-<header class="header"><div class="nav wrap">
-<a class="logo" href="#home"><span>ALI</span><small>SPECIAL COLLECTION</small></a>
-<nav><a href="#home">Home</a><a href="#shop">Shop</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
-<a class="nav-cta" href="https://wa.me/923249270319" target="_blank" rel="noopener">WhatsApp Us</a>
-<button class="menu" aria-label="Open menu">☰</button>
-</div></header>
-<main>
-<section id="home" class="hero"><div class="wrap hero-inner">
-<div class="hero-copy"><p class="eyebrow">ELEGANT • MODERN • EVERYDAY</p><h1>Wear something that<br><em>feels like you.</em></h1><p class="lead">A carefully presented collection of ladies, gents and kids wear — selected for style, comfort and everyday confidence.</p><div class="hero-actions"><a class="btn btn-primary" href="#shop">Explore Collection</a><a class="btn btn-light" href="https://wa.me/923249270319?text=Assalam%20o%20Alaikum%2C%20mujhe%20Ali%20Special%20Collection%20ki%20collection%20dekhni%20hai." target="_blank" rel="noopener">Chat on WhatsApp</a></div><div class="trust"><span>✓ Easy WhatsApp ordering</span><span>✓ Family collection</span><span>✓ Customer-first service</span></div></div>
-<div class="hero-card"><div class="hero-card-inner"><span>NEW COLLECTION</span><strong>Style for every<br>generation.</strong><small>Ladies • Gents • Kids</small></div></div>
-</div></section>
-<section class="welcome"><div class="wrap welcome-grid"><div><p class="eyebrow">A LITTLE WELCOME</p><h2>Khush aamdeed — <em>aapka style, aapki choice.</em></h2></div><p>Browse the collection, choose your favourite look and message us directly on WhatsApp. Product availability, sizes and delivery details can be confirmed before ordering.</p></div></section>
-<section id="shop" class="section wrap"><div class="section-head"><div><p class="eyebrow">SHOP THE COLLECTION</p><h2>Find your next favourite</h2></div><p class="muted">Prices are shown in PKR. Availability can be confirmed on WhatsApp.</p></div>
-<div class="filters" role="tablist"><button class="active" data-filter="all">All</button><button data-filter="ladies">Ladies</button><button data-filter="gents">Gents</button><button data-filter="kids">Kids</button></div>
-<div id="productGrid" class="grid"></div>
-</section>
-<section id="about" class="about"><div class="wrap about-grid"><div><p class="eyebrow">ABOUT US</p><h2>Simple shopping. Beautiful choices.</h2></div><p>Ali Special Collection is presented as an independent fashion collection. Product images are from our uploaded catalogue. Brand names of third parties are not used to imply affiliation or authenticity. For every item, our team can confirm current availability and details before you place an order.</p></div></section>
-<section class="why"><div class="wrap"><div class="section-head"><div><p class="eyebrow">WHY SHOP WITH US</p><h2>Made for a smoother experience</h2></div></div><div class="why-grid"><article><b>01</b><h3>Easy ordering</h3><p>Choose a product and start a WhatsApp conversation in one tap.</p></article><article><b>02</b><h3>Clear pricing</h3><p>Prices are displayed upfront, with availability confirmed before purchase.</p></article><article><b>03</b><h3>Family selection</h3><p>Browse ladies, gents and kids pieces from one place.</p></article></div></div></section>
-<section id="contact" class="contact"><div class="wrap contact-card"><div><p class="eyebrow">GET IN TOUCH</p><h2>Ready to choose your look?</h2><p>Call or WhatsApp us for product details, sizes, availability and delivery information.</p></div><div class="contact-actions"><a class="btn btn-primary" href="https://wa.me/923249270319" target="_blank" rel="noopener">WhatsApp: 0324 9270319</a><a class="btn btn-outline" href="tel:03249270319">Call Now</a><p class="location">📍 Store location: as provided in your existing website</p></div></div></section>
-</main>
-<footer><div class="wrap footer"><div><div class="footer-logo">ALI SPECIAL COLLECTION</div><p>Elegant fashion for every generation.</p></div><div><p>WhatsApp / Call</p><strong>0324 9270319</strong></div><div><p>Quick links</p><a href="#shop">Shop</a> · <a href="#contact">Contact</a></div></div><div class="copyright">© 2026 Ali Special Collection. All rights reserved.</div></footer>
-<script src="script.js"></script>
-</body></html>
+
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        ✨ Free Home Delivery All Over Pakistan | Cash On Delivery Available ✨
+    </div>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="brand-logo">
+                <h1>ALI</h1>
+                <span>Special Collection</span>
+            </a>
+            <div class="nav-actions">
+                <a href="https://wa.me/923249270319?text=Hi,%20I%20want%20to%20inquire%20about%20your%20collection." target="_blank" class="btn-whatsapp-nav">
+                    <i class="fa-brands fa-whatsapp"></i> Chat On WhatsApp
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Banner Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <p class="hero-subtitle">ELEGANT • MODERN • LUXURY</p>
+            <h2 class="hero-title">Wear Something That Feels Like You</h2>
+            <p class="hero-desc">Discover our exclusive collection of Premium Ladies Suits, Designer Gents Kurtas & Royal Kids Wear.</p>
+            <a href="#collection" class="hero-btn">Explore Collection</a>
+        </div>
+    </section>
+
+    <!-- Main Catalog Section -->
+    <main class="catalog-container" id="collection">
+        <div class="section-header">
+            <h2 class="section-title">Exclusive Catalogue</h2>
+            <p class="section-desc">Handpicked designer brands with premium quality fabrics</p>
+        </div>
+
+        <!-- Filter Buttons -->
+        <div class="filter-wrapper">
+            <button class="filter-btn active" onclick="filterProducts('all')">All Collection</button>
+            <button class="filter-btn" onclick="filterProducts('ladies')">Ladies Wear</button>
+            <button class="filter-btn" onclick="filterProducts('gents')">Gents Wear</button>
+            <button class="filter-btn" onclick="filterProducts('kids')">Kids Collection</button>
+        </div>
+
+        <!-- Product Grid -->
+        <div class="product-grid" id="productGrid">
+            
+            <!-- Product 1: Ladies -->
+            <div class="product-card" data-category="ladies">
+                <span class="product-badge">New Arrival</span>
+                <div class="product-img-box">
+                    <img src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=800&auto=format&fit=crop" alt="Embroidered Lawn Suit">
+                    <button class="quick-view-btn" onclick="openModal('Royal Embroidered Lawn 3-Piece', 'PKR 6,950', 'Pure Swiss Lawn with heavy embroidered neckline, chiffon dupatta, and dyed cotton trousers.', 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=800&auto=format&fit=crop')">Quick View</button>
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Ladies Luxury</span>
+                    <h3 class="product-title">Royal Embroidered Lawn</h3>
+                    <div class="product-price">PKR 6,950 <span>PKR 8,500</span></div>
+                    <a href="https://wa.me/923249270319?text=Hi,%20I%20want%20to%20order%20Royal%20Embroidered%20Lawn%20(PKR%206950)" class="btn-order-whatsapp" target="_blank">
+                        <i class="fa-brands fa-whatsapp"></i> Order On WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <!-- Product 2: Gents -->
+            <div class="product-card" data-category="gents">
+                <span class="product-badge">Best Seller</span>
+                <div class="product-img-box">
+                    <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=800&auto=format&fit=crop" alt="Gents Executive Suit">
+                    <button class="quick-view-btn" onclick="openModal('Gents Executive Boski Shalwar Kameez', 'PKR 5,450', 'Premium blended Boski fabric with designer metallic buttons and crisp collar finish.', 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=800&auto=format&fit=crop')">Quick View</button>
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Gents Couture</span>
+                    <h3 class="product-title">Executive Boski Suit</h3>
+                    <div class="product-price">PKR 5,450 <span>PKR 6,800</span></div>
+                    <a href="https://wa.me/923249270319?text=Hi,%20I%20want%20to%20order%20Executive%20Boski%20Suit%20(PKR%205450)" class="btn-order-whatsapp" target="_blank">
+                        <i class="fa-brands fa-whatsapp"></i> Order On WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <!-- Product 3: Ladies Festive -->
+            <div class="product-card" data-category="ladies">
+                <span class="product-badge">Festive Special</span>
+                <div class="product-img-box">
+                    <img src="https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?q=80&w=800&auto=format&fit=crop" alt="Organza Designer Suit">
+                    <button class="quick-view-btn" onclick="openModal('Festive Organza Designer Suit', 'PKR 9,800', 'Hand-crafted organza shirt with intricate zari work, paired with silk trousers and foil-printed dupatta.', 'https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?q=80&w=800&auto=format&fit=crop')">Quick View</button>
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Ladies Luxury</span>
+                    <h3 class="product-title">Festive Organza Edition</h3>
+                    <div class="product-price">PKR 9,800 <span>PKR 12,000</span></div>
+                    <a href="https://wa.me/923249270319?text=Hi,%20I%20want%20to%20order%20Festive%20Organza%20Edition%20(PKR%209800)" class="btn-order-whatsapp" target="_blank">
+                        <i class="fa-brands fa-whatsapp"></i> Order On WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <!-- Product 4: Kids Wear -->
+            <div class="product-card" data-category="kids">
+                <span class="product-badge">Trending</span>
+                <div class="product-img-box">
+                    <img src="https://images.unsplash.com/photo-1622290291468-a28f7a7dc6a8?q=80&w=800&auto=format&fit=crop" alt="Kids Ethnic Kurta">
+                    <button class="quick-view-btn" onclick="openModal('Kids Designer Kurta Pajama', 'PKR 3,250', 'Soft breathable cotton fabric designed for kids comfort with subtle thread embroidery.', 'https://images.unsplash.com/photo-1622290291468-a28f7a7dc6a8?q=80&w=800&auto=format&fit=crop')">Quick View</button>
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Kids Collection</span>
+                    <h3 class="product-title">Kids Kurta Pajama Set</h3>
+                    <div class="product-price">PKR 3,250 <span>PKR 4,000</span></div>
+                    <a href="https://wa.me/923249270319?text=Hi,%20I%20want%20to%20order%20Kids%20Kurta%20Pajama%20(PKR%203250)" class="btn-order-whatsapp" target="_blank">
+                        <i class="fa-brands fa-whatsapp"></i> Order On WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <!-- Product 5: Gents Kurta -->
+            <div class="product-card" data-category="gents">
+                <span class="product-badge">Classic</span>
+                <div class="product-img-box">
+                    <img src="https://images.unsplash.com/photo-1617137984095-74e4e5e3613f?q=80&w=800&auto=format&fit=crop" alt="Cotton Wash & Wear Kurta">
+                    <button class="quick-view-btn" onclick="openModal('Gents Wash & Wear Designer Kurta', 'PKR 3,950', 'Wrinkle-resistant luxury wash and wear fabric perfect for summer daily & formal use.', 'https://images.unsplash.com/photo-1617137984095-74e4e5e3613f?q=80&w=800&auto=format&fit=crop')">Quick View</button>
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Gents Couture</span>
+                    <h3 class="product-title">Gents Wash & Wear Kurta</h3>
+                    <div class="product-price">PKR 3,950 <span>PKR 4,800</span></div>
+                    <a href="https://wa.me/923249270319?text=Hi,%20I%20want%20to%20order%20Gents%20Wash%20%26%20Wear%20Kurta%20(PKR%203950)" class="btn-order-whatsapp" target="_blank">
+                        <i class="fa-brands fa-whatsapp"></i> Order On WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <!-- Product 6: Ladies Casual -->
+            <div class="product-card" data-category="ladies">
+                <span class="product-badge">Popular</span>
+                <div class="product-img-box">
+                    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=800&auto=format&fit=crop" alt="Printed Digital Linen">
+                    <button class="quick-view-btn" onclick="openModal('Digital Printed Linen Suit', 'PKR 4,800', 'Premium linen collection featuring vibrant digital prints with organza dupattas.', 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=800&auto=format&fit=crop')">Quick View</button>
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Ladies Casual</span>
+                    <h3 class="product-title">Digital Printed Linen</h3>
+                    <div class="product-price">PKR 4,800 <span>PKR 5,900</span></div>
+                    <a href="https://wa.me/923249270319?text=Hi,%20I%20want%20to%20order%20Digital%20Printed%20Linen%20(PKR%204800)" class="btn-order-whatsapp" target="_blank">
+                        <i class="fa-brands fa-whatsapp"></i> Order On WhatsApp
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Trust Features -->
+    <section class="features-section">
+        <div class="features-grid">
+            <div class="feature-item">
+                <i class="fa-solid fa-truck-fast"></i>
+                <h4>Nationwide Delivery</h4>
+                <p>Fast & secure delivery across Pakistan</p>
+            </div>
+            <div class="feature-item">
+                <i class="fa-solid fa-shield-halved"></i>
+                <h4>100% Original Fabric</h4>
+                <p>Guaranteed authentic brand quality</p>
+            </div>
+            <div class="feature-item">
+                <i class="fa-brands fa-whatsapp"></i>
+                <h4>Easy WhatsApp Orders</h4>
+                <p>Instant support & simple order placement</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>ALI Special Collection</h3>
+                <p>Your one-stop destination for high-end fashion clothing. Offering premium fabrics, exquisite designs, and unmatched customer service.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Categories</h3>
+                <li>Ladies Embroidered Lawn</li>
+                <li>Gents Executive Kurtas</li>
+                <li>Kids Festive Collection</li>
+                <li>Unstitched & Stitched Suits</li>
+            </div>
+            <div class="footer-col">
+                <h3>Contact Us</h3>
+                <p><i class="fa-solid fa-phone"></i> WhatsApp: +92 324 9270319</p>
+                <p><i class="fa-solid fa-location-dot"></i> Pakistan</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 ALI Special Collection. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Action Button -->
+    <a href="https://wa.me/923249270319?text=Hi,%20I%20want%20to%20order%20from%20your%20website." class="float-whatsapp" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Quick View Modal Structure -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <img id="modalImg" class="modal-img" src="" alt="Product Detail">
+            <div class="modal-details">
+                <h3 id="modalTitle" style="font-size:24px; color:var(--primary);"></h3>
+                <div id="modalPrice" style="font-size:20px; font-weight:700; color:var(--accent); margin-top:10px;"></div>
+                <p id="modalDesc" class="modal-desc"></p>
+                <a id="modalWaBtn" href="#" target="_blank" class="btn-order-whatsapp" style="padding:14px; background:#25d366;">
+                    <i class="fa-brands fa-whatsapp"></i> Confirm Order On WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript logic -->
+    <script>
+        // Filter Products Function
+        function filterProducts(category) {
+            const cards = document.querySelectorAll('.product-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Modal Functions
+        function openModal(title, price, desc, imgSrc) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalPrice').innerText = price;
+            document.getElementById('modalDesc').innerText = desc;
+            document.getElementById('modalImg').src = imgSrc;
+            
+            const waText = encodeURIComponent(`Hi, I am interested in buying: ${title} (${price})`);
+            document.getElementById('modalWaBtn').href = `https://wa.me/923249270319?text=${waText}`;
+
+            document.getElementById('productModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('productModal').style.display = 'none';
+        }
+
+        // Close Modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('productModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>
